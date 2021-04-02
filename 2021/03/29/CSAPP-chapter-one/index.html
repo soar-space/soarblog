@@ -965,12 +965,15 @@
       <script type="text/javascript">
       function renderGitalk(){
         var gitalk = new Gitalk({
-            createIssueManually: false,
+            id: location.pathname,
+	        perPage: 15,
+	        pagerDirection: "last",
+			createIssueManually: true,
             owner: 'soarspaces',
             repo: 'gitalk',
             clientID: '00814b1ad431b7a93bc5',
             clientSecret: '04192f43cdc2d2c0f9a65060bf84193a25e3d6ed',
-            admin: ['soarspaces'],
+            admin: 'soarspaces',
             
               distractionFreeMode: 'true'
             

@@ -96,7 +96,7 @@
 <meta property="og:image" content="https://static01.imgkr.com/temp/88740de329f5446b8c7855eb72ddbfd4.png">
 <meta property="og:image" content="https://static01.imgkr.com/temp/50eb3e4deb7f4126a1394596371b303a.png">
 <meta property="article:published_time" content="2021-04-08T08:04:51.000Z">
-<meta property="article:modified_time" content="2021-04-09T10:08:26.029Z">
+<meta property="article:modified_time" content="2021-04-12T05:28:40.706Z">
 <meta property="article:author" content="soar spaces">
 <meta property="article:tag" content="CASPP">
 <meta name="twitter:card" content="summary">
@@ -478,10 +478,56 @@
 </ul>
 <p>当值 χ 是 2 的非负整数 n 次幂时，也就是$χ=2^n$ 我们可以很容易地将 χ 写成十六进制形式，只要记住 χ 的二进制表示就是1后面跟 n 个 0。十六进制数字 0 代表4个二进制 0。所以，当 n 表示成 i + 4j 的形式，其中 0≤i≤3，我们可以把 χ 写成开头的十六进制数字为 1(i=0)、2(i=1)、4(i=2)或者8(i=3)，后面跟随着 j 个十六进制的0。比如，$χ=2048=2^{11}$，我们有 n=11=3 + 4 * 2，从而得到十六进制表示 0x800。</p>
 <ul>
-<li><p>✍ <code>练习题2.2</code> 填写下表中的空白项，给出2的不同次幂的二进制和十六进制表示：<br></p>
-<p>| n |2”(十进制)| T(十六进制)|<br>|:—: |:—: |:—: |<br>|9 |512 |0x200|<br>|19|    |     |<br>|  |16 384|   |<br>|  |    |0x10000|<br>|17|    |     |<br>|  | 32 |     |<br>|  |    | 0x80 |</p>
-</li>
+<li>✍ <code>练习题2.2</code> 填写下表中的空白项，给出2的不同次幂的二进制和十六进制表示：<br></li>
 </ul>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:center">n</th>
+<th style="text-align:center">$2^n$(十进制)</th>
+<th style="text-align:center">$2^n$(十六进制)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">9</td>
+<td style="text-align:center">512</td>
+<td style="text-align:center">0x200</td>
+</tr>
+<tr>
+<td style="text-align:center">19</td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center">16384</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center">0x10000</td>
+</tr>
+<tr>
+<td style="text-align:center">17</td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center">32</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+<td style="text-align:center">0x80</td>
+</tr>
+</tbody>
+</table>
+</div>
 <p>十进制和十六进制表示之间的转换需要使用乘法或者除法来处理一般情况。将一个十进制数字 χ 转换为十六进制，可以反复地用 16 除 χ，得到一个商 q 和一个余数 r，也就是 χ = q * 16 + r。然后，我们用十六进制数字表示的 r 作为最低位数字，并且通过对 q 反复<br>进行这个过程得到剩下的数字。例如，考虑十进制 314 156的转换：</p>
 <script type="math/tex; mode=display">314156 = 19634 - 16 +12  (C)</script><script type="math/tex; mode=display">19 634= 1227 \cdot 16+2 (2)</script><script type="math/tex; mode=display">1227= 76 \cdot 16 +11 (B)</script><script type="math/tex; mode=display">76= 4 - 16 + 12 (C)</script><script type="math/tex; mode=display">4= 0 \cdot 16 +4 (4)</script><p>从这里，我们能读出十六进制表示为 0x4CB2C。</p>
 <p>反过来，将一个十六进制数字转换为十进制数字，我们可以用相应的16的幂乘以每个十六进制数字。比如，给定数字 0x7AF,我们计算它对应的十进制值为 $ 7 \cdot 16^2 + 10 \cdot<br>16 +15 = 7 \cdot 256 + 10 \cdot 16 +15 = 1792+160+15 =1967$ </p>
@@ -703,8 +749,48 @@ Linux &64  &55 &48 &89 &e5 &89 &7d &fc &89 &75 &f8 &03 &45 &fc &c9 &c3 \\
       & 1110 \\
    \end{array}
  \end{array}</script><ul>
-<li>✍ <code>练习题2.8</code> 填写下表，给出位向量的布尔运算的求值的求值结果。<br> | 运算 | 结果 |<br> |:—-:|:—-:|<br> |  a |  [01101001]<br> |  b |  [01010101]<br> | ~a | —— |<br> | ~b | —— |<br> | a&amp;b | —— |<br> | a|b | —— |<br> | a^b | —— |</li>
+<li>✍ <code>练习题2.8</code> 填写下表，给出位向量的布尔运算的求值的求值结果。</li>
 </ul>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:center">运算</th>
+<th style="text-align:center">结果</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">a</td>
+<td style="text-align:center">[01101001]</td>
+</tr>
+<tr>
+<td style="text-align:center">b</td>
+<td style="text-align:center">[01010101]</td>
+</tr>
+<tr>
+<td style="text-align:center">~a</td>
+<td style="text-align:center">——</td>
+</tr>
+<tr>
+<td style="text-align:center">~b</td>
+<td style="text-align:center">——</td>
+</tr>
+<tr>
+<td style="text-align:center">a&amp;b</td>
+<td style="text-align:center">——</td>
+</tr>
+<tr>
+<td style="text-align:center">a &#124; b</td>
+<td style="text-align:center">——</td>
+</tr>
+<tr>
+<td style="text-align:center">a^b</td>
+<td style="text-align:center">——</td>
+</tr>
+</tbody>
+</table>
+</div>
 <blockquote>
 <p><strong>网络旁注 DATA:BOOL 关于布尔代数和布尔环的更多内容</strong></p>
 <p>对于任意整数 w&gt;0，长度为 w 的位向量上的布尔运算 |、&amp; 和 ~ 形成了一个布尔代数。最简单的情况是 w=l 时，只有 2 个元素；但是对于更普遍的情况，有 $2^W$ 个长度为 w 的位向量。布尔代数和整数算术运算有很多相似之处。例如，乘法对加法的分配律，写为 a•(b+c)=(a•b)+(a•c)，而布尔运算 &amp;对 | 的分配律，写为 a&amp;(b|c)=(a&amp;b|(a&amp;c)。此外，布尔运算 | 对 &amp; 也有分配律，写为 a|(b&amp;c)=(a|b)&amp;(a|c)，但是对于整数我们不能说 a+(b•c)=(a+b)•(a+c)。</p>
@@ -750,12 +836,10 @@ Linux &64  &55 &48 &89 &e5 &89 &7d &fc &89 &75 &f8 &03 &45 &fc &c9 &c3 \\
 <td style="text-align:center">0x41</td>
 </tr>
 <tr>
-<td style="text-align:center">0x69\</td>
-<td style="text-align:center">0x55</td>
-<td style="text-align:center">[0110 1001]\</td>
-<td style="text-align:center">[0101 0101]</td>
-<td>[0111 1101]</td>
-<td>0x7D</td>
+<td style="text-align:center">0x69 &#124; 0x55</td>
+<td style="text-align:center">[0110 1001] &#124; [0101 0101]</td>
+<td style="text-align:center">[0111 1101]</td>
+<td style="text-align:center">0x7D</td>
 </tr>
 </tbody>
 </table>
@@ -766,8 +850,41 @@ Linux &64  &55 &48 &89 &e5 &89 &7d &fc &89 &75 &f8 &03 &45 &fc &c9 &c3 \\
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">inplace_swap</span><span class="params">(<span class="keyword">int</span> *x, <span class="keyword">int</span> *y)</span> </span>&#123;</span><br><span class="line">    *y = *x ^ *y;  <span class="comment">/* Step 1 */</span></span><br><span class="line">    *x = *x ^ *y;  <span class="comment">/* Step 2 */</span></span><br><span class="line">    *y = *x ^ *y;  <span class="comment">/* Step 3 */</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>正如程序名字所暗示的那样，我们认为这个过程的效果是交换指针变量x和y所指向的存储位置处存放的值。注意，与通常的交换两个数值的技术不一样，当移动一个值时，我们不需要第三个位置来临时存储另一个值。这种交换方式并没有性能上的优势，它仅仅是一个智力游戏。</p>
 <p>以指针 x 和 y 指向的位置存储的值分别是 a 和 b 作为开始，填写下表，给出在程序的每一步之后，存储在这两个位置中的值。利用 ^ 的属性证明达到了所希望的效果。回想一下，每个元素就是它自身的加法逆元（a^a=0）。</p>
-<p>| 步骤 | <em>x | </em>y |<br>| :-: | :-: |:-: |<br>| 初始 |  a |  b |<br>|第1步 |    |    |<br>|第2步 |    |    |<br>|第3步 |    |    |</p>
 </li>
+</ul>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:center">步骤</th>
+<th style="text-align:center">*x</th>
+<th style="text-align:center">*y</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">初始</td>
+<td style="text-align:center">a</td>
+<td style="text-align:center">b</td>
+</tr>
+<tr>
+<td style="text-align:center">第1步</td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">第2步</td>
+<td style="text-align:center"></td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center">第3步</td>
+<td style="text-align:center"></td>
+</tr>
+</tbody>
+</table>
+</div>
+<ul>
 <li><p>✍ <code>练习题2.11</code> 在练习题2.10中的inplace_swap函数的基础上，你决定写一段代码，实现将一个数组中的元素头尾两端依次对调。你写出下面这个函数：</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">reverse_array</span><span class="params">(<span class="keyword">int</span> a[], <span class="keyword">int</span> cnt)</span> </span>&#123;</span><br><span class="line"><span class="keyword">int</span> first, last;</span><br><span class="line"><span class="keyword">for</span> (first = <span class="number">0</span>, last = cnt<span class="number">-1</span>;</span><br><span class="line">    first &lt;= last;</span><br><span class="line">    first++,last--)</span><br><span class="line">    inplace_swap(&amp;a[first] , &amp;a[last]);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>当你对一个包含元素 1、2、3和 4 的数组使用这个函数时，正如预期的那样，现在数组的元素变成了 4、3、2 和 1。不过，当你对一个包含元素 1、2、3、4 和 5 的数组使用这个函数时，你会很惊奇地看到得到数字的元素为 5、4、0、2 和 1。实际上，你会发现这段代码对所有偶数长度的数组都能正确地工作，但是当数组的长度为奇数时，它就会把中间的元素设置成0。<br></p>
@@ -818,10 +935,8 @@ Linux &64  &55 &48 &89 &e5 &89 &7d &fc &89 &75 &f8 &03 &45 &fc &c9 &c3 \\
 <td style="text-align:center">0x01</td>
 </tr>
 <tr>
-<td style="text-align:left">0x69\</td>
-<td style="text-align:center">\</td>
-<td>0x55</td>
-<td>0x01</td>
+<td style="text-align:left">0x69 &#124;&#124; 0x55</td>
+<td style="text-align:center">0x01</td>
 </tr>
 </tbody>
 </table>
@@ -849,22 +964,16 @@ Linux &64  &55 &48 &89 &e5 &89 &7d &fc &89 &75 &f8 &03 &45 &fc &c9 &c3 \\
 <td style="text-align:center"></td>
 </tr>
 <tr>
-<td style="text-align:center">x \</td>
-<td style="text-align:center">y</td>
+<td style="text-align:center">x &#124; y</td>
 <td style="text-align:center"></td>
-<td style="text-align:center">x</td>
-<td></td>
-<td>y</td>
-<td></td>
+<td style="text-align:center">x &#124;&#124; y</td>
+<td style="text-align:center"></td>
 </tr>
 <tr>
-<td style="text-align:center">~x \</td>
-<td style="text-align:center">~y</td>
+<td style="text-align:center">~x &#124; ~y</td>
 <td style="text-align:center"></td>
-<td style="text-align:center">!x</td>
-<td></td>
-<td>!y</td>
-<td></td>
+<td style="text-align:center">!x &#124;&#124; !y</td>
+<td style="text-align:center"></td>
 </tr>
 <tr>
 <td style="text-align:center">x &amp; !y</td>
